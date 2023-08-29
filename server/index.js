@@ -21,6 +21,7 @@ io.on("connection", (socket) => {
 
   socket.on("send", (room, file, type, name) => {
     socket.to(room).emit("receive", file["0"], type, name);
+    socket.emit("sender", name);
   });
 });
 
